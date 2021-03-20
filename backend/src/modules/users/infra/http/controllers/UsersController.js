@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import GetUsersService from '../../../services/GetUsersService.js';
+import GetUsersService from '../../../services/GetUsersService';
 import CreateUsersService from '../../../services/CreateUsersService';
 
 class UsersController {

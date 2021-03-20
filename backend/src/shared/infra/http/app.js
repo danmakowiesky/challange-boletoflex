@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from '../http/api/routes';
+import routes from './api/routes';
 
 class App {
   constructor() {
