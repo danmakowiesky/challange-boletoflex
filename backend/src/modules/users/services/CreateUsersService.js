@@ -1,5 +1,4 @@
-
-import UsersRepository from '../infra/repositories/UsersRepository'
+import UsersRepository from '../infra/repositories/UsersRepository';
 
 class CreateCategoriesService {
   constructor() {
@@ -7,7 +6,6 @@ class CreateCategoriesService {
   }
 
   async execute(params, avatar) {
- 
     const user = await this.usersRepository.create({
       ...params,
       avatar: avatar.filename,

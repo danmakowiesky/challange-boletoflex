@@ -1,8 +1,9 @@
 import * as Yup from 'yup';
-import GetUsersService from '../../../services/GetUsersService';
+import GetUsersService from '../../../services/GetUsersService.js';
 import CreateUsersService from '../../../services/CreateUsersService';
-class UsersController{
-  async create(req, res){
+
+class UsersController {
+  async create(req, res) {
     try {
       const { body, file } = req;
 
@@ -21,7 +22,7 @@ class UsersController{
         return res.status(400).json({ message: validate });
       }
 
-      const avatar = req.file
+      const avatar = file;
 
       const createUsersService = new CreateUsersService();
       const result = await createUsersService.execute(body, avatar);
@@ -32,7 +33,7 @@ class UsersController{
     }
   }
 
-  async fetch(req, res){
+  async fetch(req, res) {
     try {
       const schema = Yup.object().shape({
         userId: Yup.number().notRequired(),
@@ -45,7 +46,7 @@ class UsersController{
         return res.status(400).json({ message: validate });
       }
       const getUsersService = new GetUsersService();
-      
+
       const result = await getUsersService.execute(req.query);
       return res.json(result);
     } catch (error) {

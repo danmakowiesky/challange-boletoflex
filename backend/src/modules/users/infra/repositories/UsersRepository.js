@@ -13,16 +13,13 @@ class UsersRepository {
   }
 
   async fetch(idUser) {
-    const fetchUsers = await this.db
-      .from(`${REPOSITORY}`)
-      .modify(query => {
-        if (idUser) {
-          query.andWhere('id', idUser);
-        }
-      });
+    const fetchUsers = await this.db.from(`${REPOSITORY}`).modify(query => {
+      if (idUser) {
+        query.andWhere('id', idUser);
+      }
+    });
     return fetchUsers;
   }
-
 }
 
 export default UsersRepository;
