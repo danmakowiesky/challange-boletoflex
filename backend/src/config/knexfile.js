@@ -1,13 +1,12 @@
-const { join } = require('path');
+require('dotenv').config();
 
-console.log(join(__dirname));
 module.exports = {
   client: 'pg',
   connection: {
-    host: '0.0.0.0',
-    user: 'postgres',
-    password: 'boletoflex',
-    database: 'challenge-boletoflex',
+    host: process.env.DB_SERVER,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_DATABASE,
   },
   migrations: {
     directory: '../shared/infra/knex/migrations',
