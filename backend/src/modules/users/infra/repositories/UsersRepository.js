@@ -8,16 +8,20 @@ class UsersRepository {
   }
 
   async create(params) {
-    console.log(params)
     const users = await this.db.insert(params).returning('*');
     return users;
   }
 
-  async findAll() {
-    const findAllUsers = this.db.returning('*')
-    return findAllUsers;
+  async fetch(idUser) {
+    const fetchUsers = await this.db
+      .from(`${REPOSITORY}`)
+      .modify(query => {
+        if (idUser) {
+          query.andWhere('id', idUser);
+        }
+      });
+    return fetchUsers;
   }
-
 
 }
 

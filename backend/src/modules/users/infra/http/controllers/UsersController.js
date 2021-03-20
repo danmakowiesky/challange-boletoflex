@@ -34,9 +34,19 @@ class UsersController{
 
   async fetch(req, res){
     try {
+      const schema = Yup.object().shape({
+        userId: Yup.number().notRequired(),
+      });
+
+      const isValid = schema.isValidSync(req.query);
+
+      if (!isValid) {
+        const validate = schema.validateSync(req.query);
+        return res.status(400).json({ message: validate });
+      }
       const getUsersService = new GetUsersService();
       
-      const result = await getUsersService.execute();
+      const result = await getUsersService.execute(req.query);
       return res.json(result);
     } catch (error) {
       return res.status(500).json({ message: error.message });

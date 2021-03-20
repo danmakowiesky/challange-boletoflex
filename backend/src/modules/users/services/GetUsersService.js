@@ -5,9 +5,9 @@ class GetUsersService {
     this.usersRepository = new UsersRepository();
   }
 
-  async execute() {
-    const findAllUsers = await this.usersRepository.findAll();
-    return findAllUsers;
+  async execute({idUser}) {
+    const fetchUser = await this.usersRepository.fetch(idUser);
+    return fetchUser;
   }
 }
 
