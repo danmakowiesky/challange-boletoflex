@@ -11,22 +11,34 @@
   },
   "private": false,
   "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/polyfill": "^7.12.1", 
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "express": "^4.17.1",
+    "json5": "^2.2.0",
     "knex": "^0.95.2",
     "multer": "^1.4.2",
     "pg": "^8.5.1",
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@babel/cli": "^7.11.5",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/register": "^7.10.5",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-import-resolver-babel-module": "^5.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-import-helpers": "^1.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.7",
-    "sucrase": "^3.17.1",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.1",
+    "sucrase": "^3.17.1"
   }
 }
