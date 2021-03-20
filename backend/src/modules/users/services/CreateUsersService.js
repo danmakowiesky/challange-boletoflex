@@ -8,12 +8,12 @@ class CreateCategoriesService {
 
   async execute(params, avatar) {
  
-    const create = await this.usersRepository.create({
+    const user = await this.usersRepository.create({
       ...params,
       avatar: avatar.filename,
     });
 
-    return create;
+    return user;
   }
 }
 

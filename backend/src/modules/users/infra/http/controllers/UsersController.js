@@ -8,7 +8,7 @@ class UsersController{
 
       const schema = Yup.object().shape({
         name: Yup.string().required(),
-        email: Yup.string().required(),
+        email: Yup.string().email().required(),
         phone: Yup.string().required(),
         cpf: Yup.string().required(),
         profession: Yup.string().required(),
