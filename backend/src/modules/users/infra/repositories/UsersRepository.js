@@ -12,10 +12,14 @@ class UsersRepository {
     return users;
   }
 
-  async fetch(idUser) {
+  async fetch(params) {
     const fetchUsers = await this.db.from(`${REPOSITORY}`).modify(query => {
-      if (idUser) {
-        query.andWhere('id', idUser);
+      if (params.idUser) {
+        query.andWhere('id', params.idUser);
+      }
+
+      if (params.cpf) {
+        query.andWhere('cpf', params.cpf);
       }
     });
     return fetchUsers;
