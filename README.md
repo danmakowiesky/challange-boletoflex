@@ -1,4 +1,4 @@
-# challange-boletoflex
+# challenge-boletoflex
 
 O sistema desenvolvido para o desafio, tem como objetivo efetuar o cadastro de clientes, e verificar as informaçoes posteriormente. O código é separado em uma API feito com NodeJS  e o front-end com React.
 
