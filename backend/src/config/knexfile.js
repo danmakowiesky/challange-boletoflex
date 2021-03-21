@@ -1,4 +1,8 @@
-require('dotenv').config();
+const { join } = require('path');
+
+require('dotenv').config({
+  path: join(__dirname, `../../.env.${process.env.NODE_ENV}`),
+});
 
 module.exports = {
   client: 'pg',

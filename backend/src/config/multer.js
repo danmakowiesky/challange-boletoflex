@@ -11,7 +11,10 @@ export default {
           return callback(error);
         }
 
-        return callback(null, res.toString('hex') + extname(file.originalname));
+        return callback(
+          null,
+          `${res.toString('hex')}${extname(file.originalname)}.jpg`,
+        );
       });
     },
   }),

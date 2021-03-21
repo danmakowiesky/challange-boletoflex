@@ -1,10 +1,10 @@
-import GetUsersService from './GetUsersService';
+import GetUsersByIdService from './GetUsersByIdService';
 
-const getUsers = new GetUsersService();
+const getUsersByIdService = new GetUsersByIdService();
 describe('Get User By Id', () => {
   it('should get User By Id', async () => {
-    const objUser = { idUser: '1' };
-    const result = await getUsers.execute(objUser);
+    const idUser = 1;
+    const result = await getUsersByIdService.execute(idUser);
     expect(result).toEqual([
       {
         id: 1,

@@ -1,6 +1,9 @@
 import * as Yup from 'yup';
 import GetUsersService from '../../../services/GetUsersService';
+import GetUsersByIdService from '../../../services/GetUsersByIdService';
 import CreateUsersService from '../../../services/CreateUsersService';
+
+const base64ToImage = require('base64-to-image');
 
 class UsersController {
   async create(req, res) {
@@ -36,7 +39,7 @@ class UsersController {
   async fetch(req, res) {
     try {
       const schema = Yup.object().shape({
-        userId: Yup.number().notRequired(),
+        idUser: Yup.number().notRequired(),
       });
 
       const isValid = schema.isValidSync(req.query);
@@ -46,8 +49,15 @@ class UsersController {
         return res.status(400).json({ message: validate });
       }
       const getUsersService = new GetUsersService();
+      const getUsersByIdService = new GetUsersByIdService();
 
-      const result = await getUsersService.execute(req.query);
+      const { idUser } = req.query;
+
+      if (idUser) {
+        const result = await getUsersByIdService.execute(idUser);
+        return res.json(result);
+      }
+      const result = await getUsersService.execute();
       return res.json(result);
     } catch (error) {
       return res.status(500).json({ message: error.message });
